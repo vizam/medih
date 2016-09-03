@@ -1,0 +1,298 @@
+{
+  "nombreExt": {
+    "message": "MediH EMR",
+    "description": "nombre de la extension"
+  },
+  "descripcionExt": {
+    "message": "Historia médica electrónica, ligera y simple.",
+    "description": "descripcion de la extension"
+  },
+  "inner_inicio": {
+    "message": "Inicio",
+    "description": "<li> de barra de navegacion"
+  },
+  "inner_progreso": {
+    "message": "Progreso",
+    "description": ""
+  },
+  "inner_tratamiento": {
+    "message": "Tratamiento",
+    "description": ""
+  },
+  "inner_preferencias": {
+    "message": "Preferencias",
+    "description": ""
+  },
+  "inner_panelpaciente": {
+    "message": "Datos del Paciente",
+    "description": "encabezado de paneles"
+  },
+  "inner_panelprogreso": {
+    "message": "Progreso del Paciente",
+    "description": ""
+  },
+  "inner_panelprescripcion": {
+    "message": "Prescripción",
+    "description": ""
+  },
+  "inner_paneldatabase": {
+    "message": "Mis Medicamentos",
+    "description": ""
+  },
+  "inner_panelprescripcionsetup": {
+    "message": "Configurar Prescripción",
+    "description": ""
+  },
+  "inner_edad": {
+    "message": "Edad",
+    "description": ""
+  },
+  "inner_id": {
+    "message": "ID",
+    "description": ""
+  },
+  "inner_nombre": {
+    "message": "Nombre",
+    "description": ""
+  },
+  "inner_apellido": {
+    "message": "Apellido",
+    "description": ""
+  },
+  "inner_nacimiento": {
+    "message": "Fecha de Nacimiento",
+    "description": ""
+  },
+  "inner_sexo": {
+    "message": "Género",
+    "description": ""
+  },
+  "inner_masculino": {
+    "message": "Masculino",
+    "description": ""
+  },
+  "inner_femenino": {
+    "message": "Femenino",
+    "description": ""
+  },
+  "inner_direccion": {
+    "message": "Dirección",
+    "description": ""
+  },
+  "inner_telefono": {
+    "message": "Teléfono",
+    "description": ""
+  },
+  "inner_celular": {
+    "message": "Teléfono Móvil",
+    "description": ""
+  },
+  "inner_correo": {
+    "message": "Email",
+    "description": ""
+  },
+  "inner_antecedentes": {
+    "message": "Antecedentes Personales",
+    "description": ""
+  },
+  "inner_medicaciones": {
+    "message": "Medicaciones y Alergias",
+    "description": ""
+  },
+  "inner_otros": {
+    "message": "Otros",
+    "description": ""
+  },
+  "inner_anamnesis": {
+    "message": "Anamnesis",
+    "description": ""
+  },
+  "inner_examen": {
+    "message": "Examen Físico",
+    "description": ""
+  },
+  "inner_laboratorio": {
+    "message": "Laboratorio",
+    "description": ""
+  },
+  "inner_imagenes": {
+    "message": "Imágenes",
+    "description": ""
+  },
+  "inner_diagnostico": {
+    "message": "Diagnóstico",
+    "description": ""
+  },
+  "inner_plan": {
+    "message": "Plan y Tratamiento",
+    "description": ""
+  },
+  "inner_marcaingredientepresentacion": {
+    "message": "Marca Ingrediente Presentación",
+    "description": ""
+  },
+  "inner_indicaciones": {
+    "message": "Indicaciones",
+    "description": ""
+  },
+  "inner_fecha": {
+    "message": "Fecha",
+    "description": "campos varios"
+  },
+  "inner_paciente": {
+    "message": "Paciente",
+    "description": ""
+  },
+  "inner_grabar": {
+    "message": "Guardar",
+    "description": "botones"
+  },
+  "inner_reset": {
+    "message": "Reiniciar",
+    "description": ""
+  },
+  "inner_reiniciar": {
+    "message": "Reiniciar",
+    "description": ""
+  },
+  "inner_agregarprescripcion": {
+    "message": "Agregar a Prescripción",
+    "description": ""
+  },
+  "inner_removerultimo": {
+    "message": "Borrar último",
+    "description": ""
+  },
+  "inner_marca": {
+    "message": "Marca",
+    "description": ""
+  },
+  "inner_ingrediente": {
+    "message": "Ingrediente",
+    "description": ""
+  },
+  "inner_presentacion": {
+    "message": "Presentación",
+    "description": ""
+  },
+  "inner_imprimir": {
+    "message": "Imprimir",
+    "description": ""
+  },
+  "inner_hoy": {
+    "message": "_______HOY_______",
+    "description": "opcion de elemento select"
+  },
+  "inner_encabezadoprescripcion": {
+    "message": "Prescripción (Encabezado)",
+    "description": "Leyendas de Fieldset"
+  },
+  "inner_pieprescripcion": {
+    "message": "Prescripción (Pie)",
+    "description": ""
+  },
+  "placeholder_id": {
+    "message": "Introduzca ID y presione ENTER",
+    "description": "placeholders"
+  },
+  "placeholder_fecha": {
+    "message": "aaaa/mm/dd",
+    "description": ""
+  },
+  "placeholder_antecedentes": {
+    "message": "Enfermedades y Cirugias. Familiares.",
+    "description": ""
+  },
+  "placeholder_otros": {
+    "message": "Ocupación, hábitos. Historia sexual.",
+    "description": ""
+  },
+  "placeholder_medicamento": {
+    "message": "Primero alimente su base de datos !",
+    "description": ""
+  },
+  "placeholder_marca": {
+    "message": "Optional",
+    "description": ""
+  },
+  "placeholder_ingrediente": {
+    "message": "Optional",
+    "description": ""
+  },
+  "placeholder_presentacion": {
+    "message": "REQUIRED. E.g: Oral Tablet 500mg x10",
+    "description": ""
+  },
+  "placeholder_encabezado": {
+    "message": "Header",
+    "description": ""
+  },
+  "placeholder_pie": {
+    "message": "E.g. Signature... Refill, etc",
+    "description": ""
+  },
+  "placeholder_infopaciente": {
+    "message": "Patient Info",
+    "description": ""
+  },
+  "mensaje_registronuevo": {
+    "message": "Registro no encontrando, creando nuevo",
+    "description": ""
+  },
+  "mensaje_fechainvalida": {
+    "message": "ERROR: fecha inválida!",
+    "description": ""
+  },
+  "mensaje_registroagregado": {
+    "message": "Nuevo registro guardado",
+    "description": ""
+  },
+  "mensaje_camposrequeridos": {
+    "message": "ERROR: algunos campos son obligatorios",
+    "description": ""
+  },
+  "mensaje_fotovalida": {
+    "message": "Foto guardada con éxito",
+    "description": ""
+  },
+  "mensaje_fotoinvalida": {
+    "message": "Formato requerido: png, jpeg.",
+    "description": ""
+  },
+  "mensaje_progresoexistente": {
+    "message": "ERROR: nota para HOY ya existe !",
+    "description": ""
+  },
+  "mensaje_progresoagregado": {
+    "message": "Nuevas notas guardadas",
+    "description": ""
+  },
+  "mensaje_marcaingredienterequeridos": {
+    "message": "ERROR: se requiere Marca O Ingrediente",
+    "description": ""
+  },
+  "mensaje_medicamentograbado": {
+    "message": "Nuevo medicamento guardado",
+    "description": ""
+  },
+  "mensaje_prescripcionlarga": {
+    "message": "No hay más espacio !",
+    "description": ""
+  },
+  "mensaje_prescripcionincompleta": {
+    "message": "ERROR: campos incompletos !",
+    "description": ""
+  },
+  "mensaje_preferenciagrabada": {
+    "message": "Opción guardada",
+    "description": ""
+  },
+  "tooltip_canvas": {
+    "message": "Formatos requeridos: png/jpeg",
+    "description": ""
+  },
+  "textnode_setupprescripcion": {
+    "message": "Setup your prescription",
+    "description": ""
+  }
+}

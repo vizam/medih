@@ -1,0 +1,300 @@
+{
+  "nombreExt": {
+    "message": "MediH EMR",
+    "description": "nombre de la extension"
+  },
+  "descripcionExt": {
+    "message": "Simple electronic medical record software", 
+    "description": "descripcion de la extension"
+  },
+  "inner_inicio": {
+    "message": "Home",
+    "description": ""
+  },
+  "inner_progreso": {
+    "message": "Progress",
+    "description": ""
+  },
+  "inner_tratamiento": {
+    "message": "Treatment",
+    "description": ""
+  },
+  "inner_preferencias": {
+    "message": "Preferences",
+    "description": ""
+  },
+  "inner_panelpaciente": {
+    "message": "Patient Data",
+    "description": "encabezado de paneles"
+  },
+  "inner_panelprogreso": {
+    "message": "Patient Progress",
+    "description": ""
+  },
+  "inner_panelprescripcion": {
+    "message": "Prescription",
+    "description": ""
+  },
+  "inner_paneldatabase": {
+    "message": "My Database",
+    "description": ""
+  },
+  "inner_panelprescripcionsetup": {
+    "message": "Prescription Setup",
+    "description": ""
+  },
+  "inner_edad": {
+    "message": "Age",
+    "description": ""
+  },
+  "inner_id": {
+    "message": "ID",
+    "description": ""
+  },
+  "inner_nombre": {
+    "message": "Name",
+    "description": ""
+  },
+  "inner_apellido": {
+    "message": "Last Name",
+    "description": ""
+  },
+  "inner_nacimiento": {
+    "message": "Date of Birth",
+    "description": ""
+  },
+  "inner_sexo": {
+    "message": "Gender",
+    "description": ""
+  },
+  "inner_masculino": {
+    "message": "Male",
+    "description": ""
+  },
+  "inner_femenino": {
+    "message": "Female",
+    "description": ""
+  },
+  "inner_direccion": {
+    "message": "Address",
+    "description": ""
+  },
+  "inner_telefono": {
+    "message": "Phone",
+    "description": ""
+  },
+  "inner_celular": {
+    "message": "Mobile Phone",
+    "description": ""
+  },
+  "inner_correo": {
+    "message": "Email",
+    "description": ""
+  },
+  "inner_antecedentes": {
+    "message": "Past Medical History",
+    "description": ""
+  },
+  "inner_medicaciones": {
+    "message": "Medications and Allergies",
+    "description": ""
+  },
+  "inner_otros": {
+    "message": "Others",
+    "description": ""
+  },
+  "inner_anamnesis": {
+    "message": "Anamnesis",
+    "description": ""
+  },
+  "inner_examen": {
+    "message": "Physical Exam",
+    "description": ""
+  },
+  "inner_laboratorio": {
+    "message": "Laboratory",
+    "description": ""
+  },
+  "inner_imagenes": {
+    "message": "Images",
+    "description": ""
+  },
+  "inner_diagnostico": {
+    "message": "Diagnostic",
+    "description": ""
+  },
+  "inner_plan": {
+    "message": "Plan and Treatment",
+    "description": ""
+  },
+  "inner_marcaingredientepresentacion": {
+    "message": "Brand Ingredient Form",
+    "description": ""
+  },
+  "inner_indicaciones": {
+    "message": "Directions",
+    "description": ""
+  },
+  "inner_fecha": {
+    "message": "Date",
+    "description": "campos varios"
+  },
+  "inner_paciente": {
+    "message": "Patient",
+    "description": ""
+  },
+  "inner_grabar": {
+    "message": "Save",
+    "description": "botones"
+  },
+  "inner_reset": {
+    "message": "Reset",
+    "description": ""
+  },
+  "inner_reiniciar": {
+    "message": "Restart App",
+    "description": ""
+  },
+  "inner_agregarprescripcion": {
+    "message": "Add Prescription",
+    "description": ""
+  },
+  "inner_removerultimo": {
+    "message": "Delete Last One",
+    "description": ""
+  },
+  "inner_marca": {
+    "message": "Brand",
+    "description": ""
+  },
+  "inner_ingrediente": {
+    "message": "Ingredient",
+    "description": ""
+  },
+  "inner_presentacion": {
+    "message": "Form",
+    "description": ""
+  },
+  "inner_imprimir": {
+    "message": "Print",
+    "description": ""
+  },
+  "inner_hoy": {
+    "message": "______Today______",
+    "description": "opcion de elemento select"
+  },
+  "inner_encabezadoprescripcion": {
+    "message": "Prescription Header",
+    "description": "Leyendas de Fieldset"
+  },
+  "inner_pieprescripcion": {
+    "message": "Prescription Foot",
+    "description": ""
+  },
+  "placeholder_id": {
+    "message": "Type ID and click ENTER",
+    "description": "placeholders"
+  },
+  "placeholder_fecha": {
+    "message": "yyyy/mm/dd",
+    "description": ""
+  },
+  "placeholder_antecedentes": {
+    "message": "Illnesses and Surgeries. Family diseases.",
+    "description": ""
+  },
+  "placeholder_otros": {
+    "message": "Social history (ocupation, substances), Sexual history.",
+    "description": ""
+  },
+  "placeholder_medicamento": {
+    "message": "Feed your DataBase First!",
+    "description": ""
+  },
+  "placeholder_marca": {
+    "message": "Optional",
+    "description": ""
+  },
+  "placeholder_ingrediente": {
+    "message": "Optional",
+    "description": ""
+  },
+  "placeholder_presentacion": {
+    "message": "REQUIRED. E.g: Oral Tablet 500mg x10",
+    "description": ""
+  },
+  "placeholder_encabezado": {
+    "message": "Header",
+    "description": ""
+  },
+  "placeholder_pie": {
+    "message": "E.g. Signature... Refill, etc",
+    "description": ""
+  },
+  "placeholder_infopaciente": {
+    "message": "Patient Info",
+    "description": ""
+  },
+  "mensaje_registronuevo": {
+    "message": "Registry not found. Adding new one...",
+    "description": ""
+  },
+  "mensaje_fechainvalida": {
+    "message": "ERROR: invalid Date !",
+    "description": ""
+  },
+  "mensaje_registroagregado": {
+    "message": "Success: new registry saved.",
+    "description": ""
+  },
+  "mensaje_camposrequeridos": {
+    "message": "ERROR: some fields are required !",
+    "description": ""
+  },
+  "mensaje_fotovalida": {
+    "message": "Photo saved successfully",
+    "description": ""
+  },
+  "mensaje_fotoinvalida": {
+    "message": "Required formats: png, jpeg.",
+    "description": ""
+  },
+  "mensaje_progresoexistente": {
+    "message": "ERROR: a registry for today already exists !",
+    "description": ""
+  },
+  "mensaje_progresoagregado": {
+    "message": "New notes saved",
+    "description": ""
+  },
+  "mensaje_marcaingredienterequeridos": {
+    "message": "ERROR: Brand OR Ingredient required",
+    "description": ""
+  },
+  "mensaje_medicamentograbado": {
+    "message": "New medicine saved",
+    "description": ""
+  },
+  "mensaje_prescripcionlarga": {
+    "message": "No more space",
+    "description": ""
+  },
+  "mensaje_prescripcionincompleta": {
+    "message": "ERROR: missing fields",
+    "description": ""
+  },
+  "mensaje_preferenciagrabada": {
+    "message": "Success !",
+    "description": ""
+  },
+  "tooltip_canvas": {
+    "message": "Required formats: png/jpeg",
+    "description": ""
+  },
+  "textnode_setupprescripcion": {
+    "message": "Setup your prescription",
+    "description": ""
+  }
+
+
+}

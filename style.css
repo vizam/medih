@@ -1,0 +1,515 @@
+html {
+overflow: auto;
+}
+
+body {
+background: LightGray;
+margin: 0;
+font-family: Monospace;
+font-size: 14px;
+}
+
+/* Container and items (subcontainers) */
+
+
+div.container-row-start {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: flex-start; /* flex-start(default) | flex-end | center | space-between | space-around; */
+/*align-items: flex-start | flex-end | center | baseline | stretch; (default)*/
+}
+div.container-row-end {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: flex-end; 
+}
+div.container-row-center {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: center; 
+}
+div.container-row-between {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-between; 
+}
+div.container-row-around {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-around; 
+}
+div.container-col-start {
+display: flex;
+flex-flow: column nowrap;
+justify-content: flex-start; 
+}
+div.container-col-center {
+display: flex;
+flex-flow: column nowrap;
+justify-content: center; 
+}
+div.item-grow {
+flex: 1 0 auto;
+}
+div.item-shrink {
+flex: 0 1 auto;
+}
+div.item-grow-pad {
+flex: 1 0 auto;
+padding: 10px;
+}
+div.item-shrink-pad {
+flex: 0 1 auto;
+padding: 10px;
+}
+div.imprimir-container {
+display: none;
+}
+div.imprimir-item {
+flex: 0 1 auto;
+padding: 3px;
+}
+
+/* Div barra estado y sus elementos */
+
+div.barra-estado {
+width: 100%;
+padding: 3px;
+background: DarkSlateGray;
+color: White;
+position: fixed;
+bottom: 0px;
+left: 0px;
+}
+div.barra-estado img {
+display: inline-block;
+vertical-align: middle;
+}
+div.barra-estado p {
+display: inline-block;
+margin: 0;
+font: 1.5em/normal Monospace;
+color: DarkSlateGray;
+vertical-align: middle;
+animation-name: mensaje;
+animation-duration: 5s;
+}
+@keyframes mensaje {
+0% {color: DarkSlateGray;}
+25% {color: White;}
+50% {color: White;}
+100% {color: DarkSlateGray;}
+}
+
+/* Div tooltip y sus elementos*/
+
+div.tool-tip {
+opacity: 0;
+border: 1px solid Gray;
+background-color: LightYellow;
+width: 150px;
+position: fixed;
+left: 0;
+right: 0;
+transition: opacity 1s;
+}
+div.tool-tip > p {
+margin: 0;
+font-size: 0.8em;
+}
+
+/* Panels */
+
+div.panel-top {  /*Panel tipo header*/
+border: 1px solid black;
+border-radius: 5px;
+background-color: SlateGray;
+color: White;
+}
+div.panel {
+display: block;
+/*background: linear-gradient(WhiteSmoke, LightGray);*/
+background: WhiteSmoke;
+margin: 20px;
+box-shadow: 5px 5px 5px Grey;
+border: 1px solid black;
+border-radius: 5px;
+}
+div.panel-head {
+border-bottom: 1px solid black;
+border-radius: 5px 5px 0 0 ;
+background-color: SteelBlue;
+color: White;
+}
+div.panel-head  h2 {
+padding: 3px 5px;
+margin: 0;
+}
+div.panel-info {
+display: block;
+box-sizing: border-box;
+border: 1px solid black;
+background-color: LightBlue;
+border-radius: 5px;
+}
+div.panel-info > p {
+margin: auto;
+}
+
+/*div info y los elementos que lo acompanan*/
+
+div.info-foto {
+box-sizing: border-box;
+max-width: 0px;
+max-height: 30px;
+margin: 5px auto;
+transition: max-width 2s;
+overflow: hidden;
+border-radius: 3px;
+background-color: Pink;
+}
+ul.list-info {
+box-sizing: border-box;
+padding: 1px;
+margin: 1px;
+list-style-type: none;
+font-size: 0.8em;
+}
+ul.list-info li {
+display: inline-block;
+}
+
+/* Navigation Bar List Based*/
+
+ul.navbar-hor {
+display: block;
+box-sizing: border-box;
+list-style-type: none;
+height: 100%;
+margin: 0;
+padding: 0;
+}
+ul.navbar-hor > li {
+display: block;
+box-sizing: border-box;
+border: 1px solid SlateGray; 
+outline: 0;
+float: left;
+height: 100%;
+padding: 0 1.5em;
+font: 1.8em/2 Monospace;
+}
+ul.navbar-hor > li:hover {
+cursor: pointer;
+color: Black;
+outline: 0;
+}
+li.active {
+background-color: White;
+color: Black;
+}
+
+/* Retrato y elementos relacionados */
+
+canvas {
+opacity: 0.4;
+display: block;
+border: 1px solid Gray;
+}
+img.boton {
+display: inline-block;
+visibility: hidden;
+cursor: pointer;
+margin: 3px 28px; /*segundo valor es (160-24) / 4*/
+}
+img.boton:active {
+transform: translateY(2px);
+}
+
+/*Formularios*/
+
+form {
+margin: 5px;
+}
+label {
+display: inline-block;
+margin: 3px;
+font-size: 1em;
+}
+input {
+box-sizing: border-box;
+display: inline-block;
+padding: 5px;
+font: 1em/normal Monospace;
+border: 1px solid Gray;
+border-radius: 0px;
+}
+input:focus {
+background-color: LightYellow;
+}
+input:disabled {
+color: Black;
+background-color: WhiteSmoke;
+}
+input#id {
+border: 1px solid RoyalBlue;
+}
+textarea {
+box-sizing: border-box;
+resize: none;
+padding: 5px;
+font: 1em/normal Monospace;
+overflow: auto;
+}
+textarea:focus {
+background-color: LightYellow;
+}
+textarea:disabled {
+background-color: WhiteSmoke;
+}
+button {
+display: block;
+box-sizing: border-box;
+width: 100%;
+border: 0px;
+outline: 0;
+border-radius: 5px;
+padding: 5px;
+margin: 5px auto;
+background-color: SteelBlue; 
+font: 1em/normal Monospace;
+color: White;
+}
+button:disabled {
+opacity: 0.4;
+}
+button:hover:not([disabled]) {
+cursor: pointer;
+background-color: SlateBlue;
+}
+button:active {
+transform: translateY(2px);
+}
+form.forma-paciente label {
+display: block;
+margin: 3px;
+font-size: 1em;
+}
+button.boton-reiniciar {
+background-color: PaleGreen;
+color: Green;
+border: 1px solid Green;
+}
+button.boton-reiniciar:hover {
+background-color: LimeGreen;
+color: White;
+}
+form.forma-paciente input {
+box-sizing: border-box;
+display: block;
+width: 300px;
+border: 1px solid Gray;
+padding: 5px;
+}
+form.forma-paciente select {
+box-sizing: border-box;
+display: block;
+width: 100%;
+padding: 5px;
+font: 1em/normal Monospace;
+}
+
+
+form.form-inline {
+padding: 3px;
+}
+form.form-inline > input {
+display: inline-block;
+border-radius: 5px 0 0 5px;
+}
+form.form-inline > input[type=button] {
+border-radius: 0 5px 5px 0;
+border-left-width: 0;
+background-color: White ;
+color: Black;
+}
+form.form-inline > input[type=button]:hover {
+cursor: pointer;
+background-color: LightGray;
+color: Black;
+}
+form.form-group label {
+display: block;
+font-size: 1em;
+}
+form.form-group input {
+display: block;
+box-sizing: border-box;
+width: 100%;
+border: 1px solid Gray;
+}
+form.form-group select {
+display: block;
+width: 100%;
+box-sizing: border-box;
+font-size: 1.2em;
+border: 1px solid black;
+border-radius: 5px;
+}
+
+/* Forma para configurar recipe*/
+
+form.form-prescription input {
+display: block;
+box-sizing: border-box;
+border-width: 0;
+border-radius: 0;
+font-family: Monospace;
+text-align: center;
+}
+form.form-prescription input[class=headertop] {
+width: 100%;
+font-size: 1.8em;
+outline: 1px dashed black;
+}
+form.form-prescription input[class=headermid] {
+width: 100%;
+font-size: 1.2em;
+outline: 1px dashed black;
+}
+form.form-prescription textarea {
+width: 100%;
+overflow: hidden;
+border-width: 0;
+outline: 1px dashed black;
+font-size: 0.8em;
+text-align: center;
+}
+form.form-prescription input[class=foottop] {
+width: 100%;
+font-size: 1em;
+outline: 1px dashed black;
+text-align: right;
+}
+form.form-prescription input[class=foot] {
+width: 100%;
+font-size: 1em;
+text-align: left;
+}
+
+/* Tabla para la Prescripcion*/
+
+table.prescripcion {
+box-sizing: border-box;
+height: 39em;
+width: 30em;
+border-collapse: collapse;
+border: 1px solid black;
+margin: auto;
+background-color: WhiteSmoke;
+}
+div.div-widget {
+display: none;
+position: absolute;
+box-sizing: border-box;
+overflow: auto;
+background: White;
+border: 1px solid Gray;
+}
+table.new-widget {
+display: table;
+width: 100%;
+box-sizing: border-box;
+border: 1px solid Gray;
+cursor: copy;
+}
+table.new-widget tr:hover {
+background-color: LightGray;
+}
+tr {
+white-space: pre-line;
+}
+tr.headertop {
+font-size: 1.8em;
+text-align: center;
+}
+tr.headermid {
+font-size: 1.2em;
+text-align: center;
+}
+tr.headerbot {
+font-size: 0.8em;
+text-align: center;
+}
+tr.bodytop {
+font-size: 1em;
+font-weight: bold;
+font-style: italic;
+text-align: left;
+}
+tr.body {
+height: 70%;
+font-size: 1em;
+text-align: left;
+white-space: pre-line;
+}
+tr.body > td {
+vertical-align: top;
+}
+tr.foottop {
+font-size: 1em;
+text-align: right;
+}
+tr.foot {
+font-size: 1em;
+text-align: left;
+}
+td {
+padding: 0 0.5em;
+}
+td > p:nth-child(odd) {
+margin-bottom: 0;
+font: 1em/normal Monospace;
+text-decoration: underline;
+}
+td > p:nth-child(even) {
+margin-top: 0;
+margin-bottom: 0;
+font: 1em/normal Monospace;
+}
+
+
+.center {
+display: block;
+margin: auto;
+}
+.btn-normal {
+background-color: ;
+}
+
+/* Colors for background-color */
+.green {
+background-color: PaleGreen;
+
+}
+
+.slategray {
+background: SlateGray;
+color: White;
+}
+.silver {
+background: silver;
+}
+.lightgray {
+background: LightGray;
+}
+.steelblue {
+background: SteelBlue;
+}
+
+

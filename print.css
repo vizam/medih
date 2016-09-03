@@ -1,0 +1,25 @@
+@media print {
+
+@page {
+size: letter landscape;
+margin: 1cm;
+}
+div.imprimir-container {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-between; /* flex-start(default) | flex-end | center | space-between | space-around; */
+align-items: center; /* flex-start | flex-end | center | baseline | stretch; (default)*/
+}
+div.imprimir-item {
+flex: 0 1 auto;
+padding: 3px;
+}
+div:not(.imprimir-container):not(.imprimir-item) {
+display: none;
+}
+table.prescripcion {
+height: 550pt;
+width: 357pt;
+font-size: 12pt;
+}

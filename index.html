@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+		<title>Doctor's Office</title>
+		<link rel='stylesheet' href='style.css'>
+		<link rel='stylesheet' href='print.css' media='print'>
+		<meta chartset='UTF-8'>
+  </head>
+  <body>
+<!--
+data-inner = traducciones que requieren innerHTML
+data-placeholder = traducciones que requieren placeholder
+data-tooltip = creacion de addEventListener e informacion para traduccion
+-->
+    <div class='container-row-end slategray' id='panelTop'>
+      <div class='item-grow'>
+        <form>
+          <label for='nombreTop' data-inner='inner_paciente'>Patient:</label>
+          <input id='nombreTop' type='text' size='30' disabled>
+          <label for='edad' data-inner='inner_edad'>Age:</label>
+          <input id='edad' type='text' size='2' disabled>
+				</form>
+			</div>
+      <div class='item-shrink'>
+        <ul class='navbar-hor'>
+          <li class='active' id='linkHome' data-link='linkHome' data-div='divPaciente' 
+					    data-inner='inner_inicio'>Home</li>
+          <li id='linkProgreso' data-link='linkProgreso' data-div='divProgreso' 
+					    data-inner='inner_progreso'>Progress</li>
+          <li id='linkTratamiento' data-link='linkTratamiento' data-div='divTratamiento' 
+					    data-inner='inner_tratamiento'>Treatment</li>
+          <li id='linkPreferencias' data-link='linkPreferencias' data-div='divPreferencias' 
+					    data-inner='inner_preferencias'>Preferences</li> 
+				</ul>
+			</div>
+		</div>
+
+    <div class='container-row-center' id='divPaciente'>
+      <div class='item-shrink'>
+        <div class='panel'>
+          <div class='panel-head'>
+            <h2 data-inner='inner_panelpaciente'>Patient Data and Record</h2> 
+					</div>
+          <form class='forma-paciente' id='formaPaciente' autocomplete='off'>
+            <div class='container-row-center'>
+              <div class='item-grow-pad'>
+                <label for='id' data-inner='inner_id'>ID</label>
+                <input id='id' type='number'  autofocus
+								       data-placeholder='placeholder_id' placeholder='Type ID and click ENTER'>
+                <label for='nombre' data-inner='inner_nombre'>Name</label>
+                <input id='nombre' type='text' maxlength='18' disabled >
+                <label for='apellido' data-inner='inner_apellido'>Last Name</label>
+                <input id='apellido' type='text' maxlength='18' disabled >
+                <label for='nacimiento' data-inner='inner_nacimiento'>Date of Birth</label>
+                <input id='nacimiento' type='text' data-placeholder='placeholder_fecha' disabled 
+								       placeholder='yyyy/mm/dd'>
+                <label for='sexo' data-inner='inner_sexo'>Gender</label>
+                <select id='sexo' disabled> 
+                  <option value='male' data-inner='inner_masculino'>Male</option>
+                  <option value='female' data-inner='inner_femenino'>Female</option>
+								</select>
+                <label for='direccion' data-inner='inner_direccion'>Address</label>
+                <input id='direccion' type='text' disabled >
+                <label for='telefono' data-inner='inner_telefono'>Home Phone</label>
+                <input id='telefono' type='text' disabled >
+                <label for='celular' data-inner='inner_celular'>Mobile Phone</label>
+                <input id='celular' type='text' disabled >
+                <label for='correo' data-inner='inner_correo'>E-Mail</label>
+                <input id='correo' type='text' disabled >
+							</div>
+              <div class='item-shrink-pad'>
+                <label for='antecedentes' data-inner='inner_antecedentes'>Past Medical History</label>
+                <textarea id='antecedentes' rows='6' cols='50' disabled 
+								          data-placeholder='placeholder_antecedentes'></textarea>
+                <label for='medicaciones' data-inner='inner_medicaciones'>Medications and Allergies</label>
+                <textarea id='medicaciones' rows='6' cols='50' disabled ></textarea>
+                <label for='otros' data-inner='inner_otros'>Others</label>
+                <textarea id='otros' rows='6' cols='50' disabled 
+								          data-placeholder='placeholder_otros'></textarea>
+							</div>
+							<div class='item-grow-pad'>
+								<canvas id='retrato' class='retrato' width='160' height='120' data-tooltip='tooltip_canvas'></canvas>
+								<img id ='buscarFoto' class='boton' src='Buscar-24-4682b4.png'>
+								<img id='grabarFoto' class='boton' src='Grabar-24-4682b4.png'>
+                <button id='botonPaciente' type='button' data-inner='inner_grabar' disabled >Save</button>
+                <button class='boton-reiniciar' id='botonReiniciar' type='button' data-inner='inner_reiniciar'>Reset</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class='container-row-center' id='divProgreso' style='display: none'>
+			<div class='item-shrink'>
+				<div class='panel'>
+					<div class='panel-head'>
+						<div class='container-row-start'>
+							<div class='item-shrink'>
+								<h2 data-inner='inner_panelprogreso'>Patient Progress</h2>
+							</div>
+						</div>
+					</div>
+					<form class='forma-paciente' id='formaProgreso'>
+						<div class='container-row-center'>
+							<div class='item-shrink-pad'>
+								<label for='anamnesis' data-inner='inner_anamnesis'>Anamnesis</label>
+								<textarea id='anamnesis' rows='6' cols='50'></textarea> 
+								<label  for='examen' data-inner='inner_examen'>Physical Examination</label>
+								<textarea id='examen' rows='6' cols='50'></textarea> 
+								<label for='laboratorio' data-inner='inner_laboratorio'>Laboratory</label>
+								<textarea id='laboratorio' rows='6' cols='50'></textarea> 
+							</div>
+							<div class='item-shrink-pad'>
+								<label for='imagenes' data-inner='inner_imagenes'>Radiology, Ultrasound and Others</label>
+								<textarea id='imagenes' rows='6' cols='50'></textarea> 
+								<label for='diagnostico' data-inner='inner_diagnostico'>Diagnostic</label>
+								<textarea id='diagnostico' rows='6' cols='50'></textarea>
+								<label for='plan' data-inner='inner_plan'>Plan and Treatment</label>
+								<textarea id='plan' rows='6' cols='50'></textarea>
+							</div>
+							<div class='item-shrink-pad'>
+								<label for='fechas' data-inner='inner_fecha'>Date</label>
+								<select id='fechas'>
+									<option id='hoy' value='hoy' selected='selected' 
+									        data-inner='inner_hoy'>______Today______</option> 
+								</select>
+								<button id='botonProgreso' type='button' data-inner='inner_grabar' disabled>Save</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+    <div class='container-row-center' id='divTratamiento' style='display:none'>
+      <div class='item-shrink'>
+        <div class='container-col'>
+          <div class='item-shrink'>
+            <div class='panel'>
+              <div class='panel-head'>
+                <h2 data-inner='inner_panelprescripcion'>Prescription</h2>
+							</div>
+              <form class='form-group' autocomplete='off'>
+                <label for='medicamento' 
+								       data-inner='inner_marcaingredientepresentacion'>Brand Ingredient Form</label>
+                <input id='medicamento' type='text' size='40' data-placeholder='placeholder_medicamento' placeholder='Start Here !'>
+								<div id='divWidget' class='div-widget'>
+									<table id='tablaOpciones' class='new-widget'>
+									</table>
+								</div>
+                <label for='indicacion' data-inner='inner_indicaciones'>Directions</label>
+                <textarea id='indicacion' cols='50' rows='3'></textarea>
+                <button id='botonAgregarPrescripcion' type='button' 
+								        data-inner='inner_agregarprescripcion'>Add to Prescription</button>
+                <button id='botonRemoverUltimo' type='button' 
+								        data-inner='inner_removerultimo'>Delete Last One</button>
+                <button id='botonImprimirRecipe' type='button' data-inner='inner_imprimir'>Print</button>
+							</form>
+				    </div>
+					</div>
+          <div class='item-shrink'>
+            <div class='panel'>
+              <div class='panel-head'>
+                <h2 data-inner='inner_paneldatabase'>Your Database...</h2> 
+							</div>
+              <form class='form-group' id='formaMedicamentoDB'>
+                <label for='marca' data-inner='inner_marca'>Brand</label>
+                <input id='marca' type='text' maxlength='20' size='20' data-placeholder='placeholder_marca'>              
+                <label for='ingrediente' data-inner='inner_ingrediente'>Ingredient</label>
+                <input id='ingrediente' type='text' maxlength='20' size='20' data-placeholder='placeholder_ingrediente'>
+                <label for='presentacion' data-inner='inner_presentacion'>Form and Strength</label> 
+                <input id='presentacion' type='text' maxlength='20' size='20' 
+											 data-placeholder='placeholder_presentacion'	placeholder='E.g: Oral tablet 50mg x 10'>
+                <button id='botonGrabarMedicamento' type='button' 
+								        data-inner='inner_grabar'>Add to DataBase</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+      <div class='item-shrink-pad'>
+        <table class='prescripcion' id='tablaPrescripcion'>
+          <tr class='headertop'>
+            <td colspan='4'></td>
+					</tr>
+          <tr class='headermid'>
+            <td colspan='4'></td>
+					</tr>
+          <tr class='headerbot'>
+            <td colspan='4'></td>
+					</tr>
+          <tr class='bodytop'>
+            <td colspan='4'>Rx.</td>
+					</tr>
+          <tr class='body'>
+            <td colspan='4'></td>
+					</tr>
+          <tr class='foottop'>
+            <td colspan='4'></td>
+					</tr>
+          <tr class='foot'>
+            <td style='text-decoration:underline' data-inner='inner_paciente'>Patient:</td>
+            <td></td>
+            <td style='text-decoration:underline' data-inner='inner_edad'>Age:</td> 
+            <td></td>
+					</tr>
+          <tr class='foot'>
+            <td style='text-decoration:underline' data-inner='inner_id'>ID:</td>
+            <td></td>
+            <td style='text-decoration:underline' data-inner='inner_fecha'>Date</td> 
+            <td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+							<!--Container for table clone during printing-->
+    <div class='imprimir-container' id='divRecipe'>
+      <div class='imprimir-item' id='divRecipeIzq'>
+			</div>
+      <div class='imprimir-item' id='divRecipeDer'>
+			</div>
+		</div>
+
+    <div class='container-row-center' id='divPreferencias' style='display:none'>
+      <div class='item-shrink'>
+        <div class='panel'>
+          <div class='panel-head'>
+						<h2 data-inner='inner_panelprescripcionsetup'>Prescription Setup</h2>
+					</div>
+          <form class='form-prescription' id='formaRecipe'>
+            <fieldset>
+              <legend data-inner='inner_encabezadoprescripcion'>Prescription Header</legend>
+              <input class='headertop' id='headertop' type='text' maxlength='27' size='27' autofocus 
+                     data-placeholder='placeholder_encabezado' placeholder='Header Upper Section'>
+              <input class='headermid' id='headermid' type='text' maxlength='39' size='39' 
+                     data-placeholder='placeholder_encabezado' placeholder='Header Middle Section'>
+              <textarea class='headerbot' id='headerbot' cols='60' rows='3' maxlength='180'
+                        data-placeholder='placeholder_encabezado' placeholder='Header Botton Section'></textarea> 
+						</fieldset>
+            <fieldset>
+              <legend data-inner='inner_pieprescripcion'>Prescription Foot</legend>
+              <input class='foottop' id='foottop' type='text' maxlength='48' size='48' 
+                     data-placeholder='placeholder_pie' placeholder='Foot First Line Refill, Signature, etc'>
+              <input class='foot'  type='text' maxlength='48' size='48' disabled 
+                     data-placeholder='placeholder_infopaciente' placeholder='Patient Info...'>
+              <input class='foot' type='text' maxlength='48' size='48' disabled> 
+						</fieldset>
+            <button id='botonConfigurarRecipe' type='button' data-inner='inner_grabar'>Save</button>
+            <button id='' type='reset' data-inner='inner_reset'>Reset</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+    <div class='barra-estado'>
+      <div class='container-row-start'>
+        <div class='item-shrink' id='padre'>
+          <img src='Data-Network-32.png' alt='DB icon' height='32' width='32'>
+          <p id='transaccion'></p> 
+				</div>
+			</div>
+		</div>
+
+		<div id='tooltip' class='tool-tip'>
+			<p id='tooltipTexto'></p>
+		</div>
+		
+    <script src='main.js'></script>
+
+  </body>
+</html>

@@ -295,11 +295,6 @@ background-color: SlateBlue;
 button:active {
 transform: translateY(2px);
 }
-form.forma-paciente label {
-display: block;
-margin: 3px;
-font-size: 1em;
-}
 button.boton-reiniciar {
 background-color: PaleGreen;
 color: Green;
@@ -308,6 +303,11 @@ border: 1px solid Green;
 button.boton-reiniciar:hover {
 background-color: LimeGreen;
 color: White;
+}
+form.forma-paciente label {
+display: block;
+margin: 3px;
+font-size: 1em;
 }
 form.forma-paciente input {
 box-sizing: border-box;
@@ -361,6 +361,13 @@ font-size: 1.2em;
 border: 1px solid black;
 border-radius: 5px;
 }
+
+/* Forma para configurar respaldo*/
+
+form.forma-respaldo label {
+  display: inline-block;
+}
+
 
 /* Forma para configurar recipe*/
 

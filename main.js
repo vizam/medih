@@ -622,6 +622,40 @@ function idiomas() {
   }
 }
 
+function respaldo() {
+  var fs = require('fs');
+  var dropbox = process.env.HOMEPATH + "\\" + 'Dropbox';
+  var google = process.env.HOMEPATH + "\\" + 'Google Drive';
+  
+  fs.stat(dropbox, (err, stats) => {
+    if (err) {
+      console.log('Dropbox no instalado');
+    } else {
+      document.getElementById('dropbox').disabled = false;
+    }
+  })
+  fs.stat(google, (err, stats) => {
+    if (err) {
+      console.log('Google no instalado');
+    } else {
+      document.getElementById('google').disabled = false;
+    }
+  })
+  var directorio = process.env.LOCALAPPDATA + "\\" + nw.App.manifest.name;
+  console.log(directorio);
+}
+document.getElementById('preferenciaRespaldo').addEventListener('click', datosLocales);
+function datosLocales(evt) {
+  var opcion = document.getElementById('respaldo').value;
+  chrome.storage.local.set({'respaldo': opcion}, function () {
+    console.log(arguments);
 
+  });
+}
+ 
+
+
+
+respaldo();
 idiomas();
 resetFoto();

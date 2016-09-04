@@ -1,11 +1,17 @@
 {
   "name": "medih",
   "main": "index.html",
-  "window": { "width": 1200,
-              "height": 700,
-              "frame": true,
-              "resizeable": true
+  "window": {
+    "width": 1200,
+    "height": 700,
+    "frame": true,
+    "resizeable": true
   },
-  "default_locale": "en"
-
+  "default_locale": "en",
+  "permissions": [
+    "storage"
+  ], 
+  "dependencies": {
+    "ncp": "^2.0.0"
+  }
 }

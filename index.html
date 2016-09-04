@@ -230,12 +230,18 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
               <div class='panel-head'>
                 <h2>Where to Backup ?</h2>
               </div>
-              <form class='form-group'>
-                <select id='respaldo' size='3'>
-                  <option id='dropbox' value='dropbox' disabled>Dropbox local folder</option>
-                  <option id='google' value='google' disabled>Google Drive local folder</option>
-                  <option id='preguntame' value='preguntame'>Ask Me</option>
-                </select>
+              <form class='forma-respaldo'>
+                <input type='radio' id='dropbox' name='respaldo' value='dropbox' disabled>
+                <img src='dropbox32.png'>
+                <label for='dropbox'>Dropbox Local Folder</label>
+                <br>
+                <input type='radio' id='google' name='respaldo' value='google' disabled>
+                <img src='googledrive32.png'>
+                <label for='google'>Google Drive Local Folder</label>
+                <br>
+                <input type='radio' id='local' name='respaldo' value='local'>
+                <img src='folder-icon-32.png'>
+                <label for='local'>User Local Folder</label>
                 <button id='preferenciaRespaldo' type='button'>Save</button>
               </form>
             </div>
@@ -280,10 +286,13 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
 
     <div class='barra-estado'>
       <div class='container-row-start'>
-        <div class='item-shrink' id='padre'>
+        <div class='item-grow' id='padre'>
           <img src='Data-Network-32.png' alt='DB icon' height='32' width='32'>
           <p id='transaccion'></p> 
 				</div>
+        <div class='item-shrink'>
+          <img id='botonRespaldar' src='respaldo-32-palegreen.png' width='32' height='32'>
+        </div>
 			</div>
 		</div>
 

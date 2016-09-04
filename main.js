@@ -624,8 +624,10 @@ function idiomas() {
 
 function respaldo() {
   var fs = require('fs');
+  var cpr = require('cpr');
   var dropbox = process.env.HOMEPATH + "\\" + 'Dropbox';
   var google = process.env.HOMEPATH + "\\" + 'Google Drive';
+  var directorio = process.env.LOCALAPPDATA + "\\" + nw.App.manifest.name;
   
   fs.stat(dropbox, (err, stats) => {
     if (err) {
@@ -641,18 +643,41 @@ function respaldo() {
       document.getElementById('google').disabled = false;
     }
   })
-  var directorio = process.env.LOCALAPPDATA + "\\" + nw.App.manifest.name;
-  console.log(directorio);
+  document.getElementById('preferenciaRespaldo').addEventListener('click', (evt) => { 
+    var opciones = document.getElementsByName('respaldo');
+    opciones.forEach((elemento) => {
+      if (elemento.checked == true) {
+        chrome.storage.local.set({respaldo: elemento.id}, function () {
+          console.log('se guardo la opcion');
+        });
+      } else {
+       console.log('no chequeado');
+      }
+    })
+  })
+  document.getElementById('botonRespaldar').addEventListener('click', (evt) => {
+    cpr(directorio, 'c:\\Users\\Ito', {
+      deleteFirst: false,
+      overwrite: false, 
+      confirm: false,
+      filter: false }, (err,files) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('files');
+        console.log('success');
+      }
+    })
+  })
 }
-document.getElementById('preferenciaRespaldo').addEventListener('click', datosLocales);
-function datosLocales(evt) {
-  var opcion = document.getElementById('respaldo').value;
-  chrome.storage.local.set({'respaldo': opcion}, function () {
-    console.log(arguments);
-
-  });
+//document.getElementById('respaldar').addEventListener('click', hacerRespaldo);
+function hacerRespaldo(evt) {
+  chrome.fileSystem.chooseEntry({type: 'openDirectory'}, function(entry) {
+    chrome.fileSystem.getDisplayPath(entry, function(string) {
+      console.log(string);
+    })
+  })
 }
- 
 
 
 

@@ -78,6 +78,7 @@ padding: 3px;
 /* Div barra estado y sus elementos */
 
 div.barra-estado {
+  box-sizing: border-box;
 width: 100%;
 padding: 3px;
 background: DarkSlateGray;
@@ -89,6 +90,14 @@ left: 0px;
 div.barra-estado img {
 display: inline-block;
 vertical-align: middle;
+box-sizing: border-box;
+}
+div.barra-estado img#botonRespaldar:hover {
+  cursor: pointer; 
+}
+div.barra-estado img#botonRespaldar:active {
+  cursor: pointer; 
+  transform: translateY(2px);
 }
 div.barra-estado p {
 display: inline-block;
@@ -365,6 +374,13 @@ border-radius: 5px;
 /* Forma para configurar respaldo*/
 
 form.forma-respaldo label {
+  display: inline-block;
+}
+form.forma-respaldo img {
+  display: inline-block;
+  vertical-align: top;
+}
+form.forma-respaldo input {
   display: inline-block;
 }
 

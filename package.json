@@ -8,10 +8,8 @@
     "resizeable": true
   },
   "default_locale": "en",
-  "permissions": [
-    "storage"
-  ], 
   "dependencies": {
+    "cpr": "^2.0.0",
     "ncp": "^2.0.0"
   }
 }

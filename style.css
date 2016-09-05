@@ -383,6 +383,10 @@ form.forma-respaldo img {
 form.forma-respaldo input {
   display: inline-block;
 }
+form.forma-respaldo p {
+  display: block; 
+  color: Red;
+}
 
 
 /* Forma para configurar recipe*/

@@ -228,21 +228,26 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
           <div class='item-shrink'>
             <div class='panel'>
               <div class='panel-head'>
-                <h2>Where to Backup ?</h2>
+                <h2>Data Backup</h2>
               </div>
-              <form class='forma-respaldo'>
-                <input type='radio' id='dropbox' name='respaldo' value='dropbox' disabled>
-                <img src='dropbox32.png'>
-                <label for='dropbox'>Dropbox Local Folder</label>
-                <br>
-                <input type='radio' id='google' name='respaldo' value='google' disabled>
-                <img src='googledrive32.png'>
-                <label for='google'>Google Drive Local Folder</label>
-                <br>
-                <input type='radio' id='local' name='respaldo' value='local'>
-                <img src='folder-icon-32.png'>
-                <label for='local'>User Local Folder</label>
-                <button id='preferenciaRespaldo' type='button'>Save</button>
+              <form id='formaRespaldo' class='forma-respaldo'>
+                <fieldset>
+                  <legend>Backup method</legend>
+                  <input type='radio' id='dropbox' data-proveedor='Dropbox' name='respaldo' value='dropbox' disabled>
+                  <img src='dropbox32.png'>
+                  <label for='dropbox'>Dropbox Local Folder</label>
+                  <br>
+                  <input type='radio' id='google' data-proveedor='Google Drive' name='respaldo' value='google' disabled>
+                  <img src='googledrive32.png'>
+                  <label for='google'>Google Drive Local Folder</label>
+                  <br>
+                  <input type='radio' id='local' name='respaldo' value='local'>
+                  <img src='folder-icon-32.png'>
+                  <label for='local'>User Local Folder</label>
+                  <p>Backup To: nothing selected</p>
+                  <button id='preferenciaRespaldo' type='button'>Save</button>
+                  <button class='boton-reiniciar 'id='restaurarDB' type='button'>Restore DB !</button>
+                </fieldset>
               </form>
             </div>
           </div>
@@ -301,6 +306,7 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
 		</div>
 		
     <script src='main.js'></script>
+    <script src='respaldo.js'></script>
 
   </body>
 </html>

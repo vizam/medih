@@ -287,6 +287,10 @@
     "message": "Opción guardada",
     "description": ""
   },
+  "mensaje_nadaseleccionado": {
+    "message": "Debe escoger una opción !",
+    "description": ""
+  },
   "tooltip_canvas": {
     "message": "Formatos requeridos: png/jpeg",
     "description": ""

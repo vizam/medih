@@ -1,4 +1,42 @@
 
+// Interface language from i18n - add listener to elements with data-tooltip info
+
+var elementos = document.getElementsByTagName('*');
+var longitud = elementos.length;
+for (var x = 0; x < longitud; x +=1) {
+  if (elementos[x].dataset) {
+    if (elementos[x].dataset.inner) {
+      elementos[x].innerHTML = chrome.i18n.getMessage(elementos[x].dataset.inner);
+    }
+    if (elementos[x].dataset.placeholder) {
+      elementos[x].placeholder = chrome.i18n.getMessage(elementos[x].dataset.placeholder);
+    }
+    if (elementos[x].dataset.tooltip) {
+      elementos[x].addEventListener('mouseenter', ayudaEmergente);
+      elementos[x].addEventListener('mouseleave', ayudaEmergente);
+    }
+  }
+}
+function ayudaEmergente(evt) {
+  // getBoundingClientRect() --> { bottom: xx, height:xx, left:xx, right:xx ,top:xx, width:xx }
+  var div = document.getElementById('tooltip');
+  var texto = document.getElementById('tooltipTexto');
+  var causante = evt.target.getBoundingClientRect();
+  var abscisa = causante.right - (causante.width / 2); //punto central de causante en eje x
+  var ordenada = causante.top + (causante.height / 2); //punto central de causante en eje y, no se utiliza por ahora
+  if (evt.type == 'mouseenter') {
+    texto.innerHTML = chrome.i18n.getMessage(evt.target.dataset.tooltip);
+    var emergente = div.getBoundingClientRect();
+    var divx = div.getBoundingClientRect().width;
+    var divy = div.getBoundingClientRect().height;
+    div.style.left = abscisa - (divx / 2) + 'px';
+    div.style.top = causante.bottom + 20 + 'px';
+    div.style.opacity = 1;
+  } else {
+    div.style.opacity = 0;
+  }
+}
+
 
 //Inicio de DB
 
@@ -21,7 +59,7 @@ requestDB.onsuccess = function(evt) {
   }                                                     //evt.target will be the srcElement, not db
   cargarRecipe();                                       //transaction or request objects
   cargarMedicamentos();
-}
+}                                                        
 
 
 // divPaciente
@@ -584,43 +622,4 @@ function recargarApp() {
   completarRecipe();
 }
 
-function idiomas() {
-  var elementos = document.getElementsByTagName('*');
-  var longitud = elementos.length;
-  for (var x = 0; x < longitud; x +=1) {
-    if (elementos[x].dataset) {
-      if (elementos[x].dataset.inner) {
-        elementos[x].innerHTML = chrome.i18n.getMessage(elementos[x].dataset.inner);
-      }
-      if (elementos[x].dataset.placeholder) {
-        elementos[x].placeholder = chrome.i18n.getMessage(elementos[x].dataset.placeholder);
-      }
-      if (elementos[x].dataset.tooltip) {
-        elementos[x].addEventListener('mouseenter', ayudaEmergente);
-        elementos[x].addEventListener('mouseleave', ayudaEmergente);
-      }
-    }
-  }
-  function ayudaEmergente(evt) {
-    // getBoundingClientRect() --> { bottom: xx, height:xx, left:xx, right:xx ,top:xx, width:xx }
-    var div = document.getElementById('tooltip');
-    var texto = document.getElementById('tooltipTexto');
-    var causante = evt.target.getBoundingClientRect();
-    var abscisa = causante.right - (causante.width / 2); //punto central de causante en eje x
-    var ordenada = causante.top + (causante.height / 2); //punto central de causante en eje y, no se utiliza por ahora
-    if (evt.type == 'mouseenter') {
-      texto.innerHTML = chrome.i18n.getMessage(evt.target.dataset.tooltip);
-      var emergente = div.getBoundingClientRect();
-      var divx = div.getBoundingClientRect().width;
-      var divy = div.getBoundingClientRect().height;
-      div.style.left = abscisa - (divx / 2) + 'px';
-      div.style.top = causante.bottom + 20 + 'px';
-      div.style.opacity = 1;
-    } else {
-      div.style.opacity = 0;
-    }
-  }
-}
-
-idiomas();
 resetFoto();

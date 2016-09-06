@@ -191,6 +191,34 @@
     "message": "Prescripción (Pie)",
     "description": ""
   },
+  "inner_panelrespaldo": {
+    "message": "Respaldo",
+    "description": ""
+  },
+  "inner_metodorespaldo": {
+    "message": "Método de respaldo",
+    "description": ""
+  },
+  "inner_carpetadropbox": {
+    "message": "Carpeta Local Dropbox",
+    "description": ""
+  },
+  "inner_carpetagoogle": {
+    "message": "Carpeta Local Google Drive",
+    "description": ""
+  },
+  "inner_carpetalocal": {
+    "message": "Carpeta Local del Usuario",
+    "description": ""
+  },
+  "inner_restaurardb": {
+    "message": "Restaurar datos",
+    "description": ""
+  },
+  "inner_cambiarygrabar": {
+    "message": "Cambiar y Guardar",
+    "description": ""
+  },
   "placeholder_id": {
     "message": "Introduzca ID y presione ENTER",
     "description": "placeholders"
@@ -233,6 +261,10 @@
   },
   "placeholder_infopaciente": {
     "message": "Patient Info",
+    "description": ""
+  },
+  "defecto_opcionnoasignada": {
+    "message": "Opción no seleccionada",
     "description": ""
   },
   "mensaje_registronuevo": {

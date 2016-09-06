@@ -228,25 +228,25 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
           <div class='item-shrink'>
             <div class='panel'>
               <div class='panel-head'>
-                <h2>Data Backup</h2>
+                <h2 data-inner='inner_panelrespaldo'>Data Backup</h2>
               </div>
               <form id='formaRespaldo' class='forma-respaldo'>
                 <fieldset>
-                  <legend>Backup method</legend>
-                  <input type='radio' id='dropbox' data-proveedor='Dropbox' name='respaldo' value='dropbox' disabled>
+                  <legend data-inner='inner_metodorespaldo'>Backup method</legend>
+                  <input type='radio' id='botonDropbox' data-proveedor='Dropbox' name='respaldo' disabled>
                   <img src='dropbox32.png'>
-                  <label for='dropbox'>Dropbox Local Folder</label>
+                  <label for='botonDropbox' data-inner='inner_carpetadropbox'>Dropbox Local Folder</label>
                   <br>
-                  <input type='radio' id='google' data-proveedor='Google Drive' name='respaldo' value='google' disabled>
+                  <input type='radio' id='botonGoogle' data-proveedor='Google Drive' name='respaldo' disabled>
                   <img src='googledrive32.png'>
-                  <label for='google'>Google Drive Local Folder</label>
+                  <label for='botonGoogle' data-inner='inner_carpetagoogle'>Google Drive Local Folder</label>
                   <br>
-                  <input type='radio' id='local' name='respaldo' value='local'>
+                  <input type='radio' id='botonLocal' data-proveedor='' name='respaldo'>
                   <img src='folder-icon-32.png'>
-                  <label for='local'>User Local Folder</label>
-                  <p>Backup To: nothing selected</p>
-                  <button id='preferenciaRespaldo' type='button'>Save</button>
-                  <button class='boton-reiniciar 'id='restaurarDB' type='button'>Restore DB !</button>
+                  <label for='botonLocal' data-inner='inner_carpetalocal'>User Local Folder</label>
+                  <input id='infoRespaldo' type='text' disabled>
+                  <button id='preferenciaRespaldo' type='button' data-inner='inner_cambiarygrabar'>Change and Save</button>
+                  <button class='boton-reiniciar 'id='restaurarDB' type='button' data-inner='inner_restaurardb'>Restore DB !</button>
                 </fieldset>
               </form>
             </div>

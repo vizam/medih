@@ -191,6 +191,34 @@
     "message": "Prescription Foot",
     "description": ""
   },
+  "inner_panelrespaldo": {
+    "message": "Backup",
+    "description": ""
+  },
+  "inner_metodorespaldo": {
+    "message": "Backup Method",
+    "description": ""
+  },
+  "inner_carpetadropbox": {
+    "message": "Dropbox Local Folder",
+    "description": ""
+  },
+  "inner_carpetagoogle": {
+    "message": "Google Drive Local Folder",
+    "description": ""
+  },
+  "inner_carpetalocal": {
+    "message": "User Home Folder",
+    "description": ""
+  },
+  "inner_restaurardb": {
+    "message": "Restore DB",
+    "description": ""
+  },
+  "inner_cambiarygrabar": {
+    "message": "Change and Save",
+    "description": ""
+  },
   "placeholder_id": {
     "message": "Type ID and click ENTER",
     "description": "placeholders"
@@ -233,6 +261,10 @@
   },
   "placeholder_infopaciente": {
     "message": "Patient Info",
+    "description": ""
+  },
+  "defecto_opcionnoasignada": {
+    "message": "Option not chosen yet",
     "description": ""
   },
   "mensaje_registronuevo": {

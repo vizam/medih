@@ -6,38 +6,67 @@ var homepath = process.env.HOMEPATH; //"C:\Users\Ito"
 var winpath = "\\IndexedDB";
 
 function panelRespaldo() {
-  chrome.storage.local.get('respaldo', (objeto) => { 
-    var opcion = objeto.respaldo;
-    var elemento = document.getElementById('infoRespaldo'); // input type text element from formaRespaldo
-    elemento.value = (opcion) ? homedrive + homepath + '\\' + opcion : chrome.i18n.getMessage('defecto_opcionnoasignada');
-    elemento.style.color = (opcion) ? 'Green' : 'Red';
-  });
-  var forma = document.getElementById('formaRespaldo');
-  for (var x of forma.elements) {
-    if (x.dataset.proveedor) { // select radio buttons
-      console.log(x);
-      evaluarProveedor(x);
+  chrome.storage.local.get(['proveedor', 'path'], (objeto) => { 
+    var proveedor = objeto.proveedor;
+    var path = objeto.path;
+    var forma = document.getElementById('formaRespaldo');
+    var cintillo = document.getElementById('infoRespaldo'); // input type text element from formaRespaldo
+    if (proveedor && proveedor != 'Local') {
+      cintillo.value =  homedrive + homepath + '\\' + proveedor; //: chrome.i18n.getMessage('defecto_opcionnoasignada');
+      cintillo.style.color = 'Green';
+    } else if (!proveedor) {
+      cintillo.value =  chrome.i18n.getMessage('defecto_opcionnoasignada');
+      cintillo.style.color = 'Red';
+    } else {
+      cintillo.value = path;
+      cintillo.style.color = 'Green';
     }
-  }
-  function evaluarProveedor(elemento) {
-    fs.stat(homepath + "\\" + elemento.dataset.proveedor, (err, stats) => { //stats is fs.Stats object
-      if (err) {
-        console.log(elemento.dataset.proveedor + ' no instalado');
-      } else {
-        console.log(stats);
-        elemento.disabled = false;
+    for (var x of forma.elements) {
+      if (x.dataset.proveedor) { // select radio buttons
+        evaluarProveedor(x, proveedor);
       }
-    });
+    }
+  });
+  function evaluarProveedor(x, proveedor) {
+    if (x.dataset.proveedor != 'Local') {
+      fs.stat(homepath + "\\" + x.dataset.proveedor, (err, stats) => { //stats is fs.Stats object
+        if (err) {
+          console.log(x.dataset.proveedor + ' no instalado');
+        } else {
+          console.log(stats);
+          x.disabled = false;
+          x.checked = (x.dataset.proveedor == proveedor) ? true : false;
+        }
+      });
+    } else {
+      x.checked = (x.dataset.proveedor == proveedor) ? true : false;
+    }
   }
 }
 
-
+document.getElementById('botonLocal').addEventListener('click', (evt) => {
+  var selector = document.getElementById('dialogoEscondido');
+  var cintillo = document.getElementById('infoRespaldo'); 
+  selector.addEventListener('change', (evt) => {
+    if (chrome.runtime.lastError) return;
+      console.log(selector.files); //this files object only has one key/value, value is another object with properties
+      chrome.storage.local.set({path: selector.files[0].path}, () => {   //function is optional, nothing passed, 
+        if (chrome.runtime.lastError) {
+          console.log('se produjo un error');//  if error, chrome.runtime.lastError is set
+        } else {
+          cintillo.value = selector.files[0].path;
+          cintillo.style.color = 'Black';
+        }
+      });
+  });
+  selector.click();
+});
 
 document.getElementById('preferenciaRespaldo').addEventListener('click', (evt) => { 
-  var opciones = document.getElementsByName('respaldo');
+  var opciones = document.getElementsByName('proveedor');
   opciones.forEach((elemento) => { //custom function for like Array dom element
     if (elemento.checked == true) {
-      chrome.storage.local.set({respaldo: elemento.dataset.proveedor}, function () {
+      chrome.storage.local.set({proveedor: elemento.dataset.proveedor}, function () {
         mensajeEstado(chrome.i18n.getMessage('mensaje_preferenciagrabada'));
       });
       panelRespaldo();

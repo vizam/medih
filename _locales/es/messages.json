@@ -207,8 +207,12 @@
     "message": "Carpeta Local Google Drive",
     "description": ""
   },
+  "inner_carpetaonedrive": {
+    "message": "Carpeta Local MS OneDrive",
+    "description": ""
+  },
   "inner_carpetalocal": {
-    "message": "Carpeta Local del Usuario",
+    "message": "Otra Carpeta Local",
     "description": ""
   },
   "inner_restaurardb": {

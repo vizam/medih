@@ -207,8 +207,12 @@
     "message": "Google Drive Local Folder",
     "description": ""
   },
+  "inner_carpetaonedrive": {
+    "message": "MS OneDrive Local Folder",
+    "description": ""
+  },
   "inner_carpetalocal": {
-    "message": "User Home Folder",
+    "message": "User Custom Folder",
     "description": ""
   },
   "inner_restaurardb": {

@@ -233,17 +233,22 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
               <form id='formaRespaldo' class='forma-respaldo'>
                 <fieldset>
                   <legend data-inner='inner_metodorespaldo'>Backup method</legend>
-                  <input type='radio' id='botonDropbox' data-proveedor='Dropbox' name='respaldo' disabled>
+                  <input type='radio' id='botonDropbox' data-proveedor='Dropbox' name='proveedor' disabled>
                   <img src='dropbox32.png'>
                   <label for='botonDropbox' data-inner='inner_carpetadropbox'>Dropbox Local Folder</label>
                   <br>
-                  <input type='radio' id='botonGoogle' data-proveedor='Google Drive' name='respaldo' disabled>
+                  <input type='radio' id='botonGoogle' data-proveedor='Google Drive' name='proveedor' disabled>
                   <img src='googledrive32.png'>
                   <label for='botonGoogle' data-inner='inner_carpetagoogle'>Google Drive Local Folder</label>
                   <br>
-                  <input type='radio' id='botonLocal' data-proveedor='' name='respaldo'>
+                  <input type='radio' id='botonOneDrive' data-proveedor='OneDrive' name='proveedor' disabled>
+                  <img src='onedrive32.png'>
+                  <label for='botonOneDrive' data-inner='inner_carpetaonedrive'>MS OneDrive Local Folder</label>
+                  <br>
+                  <input id='dialogoEscondido' type='file' style='display:none' nwdirectory>
+                  <input type='radio' id='botonLocal' data-proveedor='Local' name='proveedor'>
                   <img src='folder-icon-32.png'>
-                  <label for='botonLocal' data-inner='inner_carpetalocal'>User Local Folder</label>
+                  <label for='botonLocal' data-inner='inner_carpetalocal'>User Custom Folder</label>
                   <input id='infoRespaldo' type='text' disabled>
                   <button id='preferenciaRespaldo' type='button' data-inner='inner_cambiarygrabar'>Change and Save</button>
                   <button class='boton-reiniciar 'id='restaurarDB' type='button' data-inner='inner_restaurardb'>Restore DB !</button>

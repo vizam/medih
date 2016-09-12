@@ -182,7 +182,7 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
       <div class='item-shrink-pad'>
         <table class='prescripcion' id='tablaPrescripcion'>
           <tr class='headertop'>
-            <td colspan='4'></td>
+            <td colspan='4'><a href='#' data-inner='inner_configuratuprescripcion'></a></td>
 					</tr>
           <tr class='headermid'>
             <td colspan='4'></td>
@@ -246,12 +246,12 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
                   <label for='botonOneDrive' data-inner='inner_carpetaonedrive'>MS OneDrive Local Folder</label>
                   <br>
                   <input id='inputEscondido' type='file' style='display:none' nwdirectory>
-                  <input type='radio' id='botonLocal' data-proveedor='Local' name='proveedor'>
+                  <input type='radio' id='opcionLocal' data-proveedor='Local' name='proveedor'>
                   <img src='folder-icon-32.png'>
-                  <label for='botonLocal' data-inner='inner_carpetalocal'>User Custom Folder</label>
-                  <input id='infoRespaldo' type='text' disabled>
+                  <label for='opcionLocal' data-inner='inner_carpetalocal'>User Custom Folder</label>
+                  <input id='infoRuta' type='text' disabled>
                   <button id='preferenciaRespaldo' type='button' data-inner='inner_cambiarygrabar'>Change and Save</button>
-                  <button class='boton-reiniciar 'id='restaurarDB' type='button' data-inner='inner_restaurardb'>Restore DB !</button>
+                  <button class='boton-reiniciar 'id='botonRestaurarDB' type='button' data-inner='inner_restaurardb'>Restore DB !</button>
                 </fieldset>
               </form>
             </div>
@@ -301,7 +301,7 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
           <p id='transaccion'></p> 
 				</div>
         <div class='item-shrink'>
-          <img id='botonRespaldar' src='respaldo-32-palegreen.png' width='32' height='32'>
+          <img id='botonSalir' src='Logout-32.png' width='32' height='32'>
         </div>
 			</div>
 		</div>

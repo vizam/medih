@@ -183,6 +183,10 @@
     "message": "______Today______",
     "description": "opcion de elemento select"
   },
+  "inner_configuratuprescripcion": {
+    "message": "Setup your prescription",
+    "description": ""
+  },
   "inner_encabezadoprescripcion": {
     "message": "Prescription Header",
     "description": "Leyendas de Fieldset"
@@ -267,8 +271,32 @@
     "message": "Patient Info",
     "description": ""
   },
-  "defecto_opcionnoasignada": {
+  "otros_opcionnoasignada": {
     "message": "Option not chosen yet",
+    "description": ""
+  },
+  "popup_quiererespaldar": {
+    "message": "Do you want to BACKUP your DataBase to: ",
+    "description": ""
+  },
+  "popup_quiererestaurar": {
+    "message": "Do you want to RESTORE  your DataBase from: ",
+    "description": ""
+  },
+  "popup_quieresalir": {
+    "message": "Do you want to QUIT ?. A backup will be writted to: ",
+    "description": ""
+  },
+  "popup_respaldonoconfigurado": {
+    "message": "Backup method not established yet",
+    "description": ""
+  },
+  "popup_configurerespaldo": {
+    "message": "ADVICE: setup a backup method next time you come back :-)",
+    "description": ""
+  },
+  "popup_nohayrespaldo": {
+    "message": "There is not data to read from: ",
     "description": ""
   },
   "mensaje_registronuevo": {
@@ -327,14 +355,17 @@
     "message": "Nothing Selected !",
     "description": ""
   },
+  "mensaje_operacionexitosa": {
+    "message": "Operation SUCCESSFUL !",
+    "description": ""
+  },
+  "mensaje_operacionfallida": {
+    "message": "Operation FAILED !",
+    "description": ""
+  },
   "tooltip_canvas": {
     "message": "Required formats: png/jpeg",
     "description": ""
-  },
-  "textnode_setupprescripcion": {
-    "message": "Setup your prescription",
-    "description": ""
   }
-
 
 }

@@ -92,11 +92,10 @@ display: inline-block;
 vertical-align: middle;
 box-sizing: border-box;
 }
-div.barra-estado img#botonRespaldar:hover {
+div.barra-estado img#botonSalir:hover {
   cursor: pointer; 
 }
-div.barra-estado img#botonRespaldar:active {
-  cursor: pointer; 
+div.barra-estado img#botonSalir:active {
   transform: translateY(2px);
 }
 div.barra-estado p {

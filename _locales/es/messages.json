@@ -183,6 +183,10 @@
     "message": "_______HOY_______",
     "description": "opcion de elemento select"
   },
+  "inner_configuratuprescripcion": {
+    "message": "Configura tu Prescripción",
+    "description": ""
+  },
   "inner_encabezadoprescripcion": {
     "message": "Prescripción (Encabezado)",
     "description": "Leyendas de Fieldset"
@@ -267,8 +271,32 @@
     "message": "Patient Info",
     "description": ""
   },
-  "defecto_opcionnoasignada": {
+  "otros_opcionnoasignada": {
     "message": "Opción no seleccionada",
+    "description": ""
+  },
+  "popup_quiererespaldar": {
+    "message": "Desea RESPALDAR su Base de Datos a: ",
+    "description": ""
+  },
+  "popup_quiererestaurar": {
+    "message": "Desea RESTAURAR su Base de Datos desde: ",
+    "description": ""
+  },
+  "popup_quieresalir": {
+    "message": "Desea CERRAR el programa ?. Se hará un respaldo en: ",
+    "description": ""
+  },
+  "popup_respaldonoconfigurado": {
+    "message": "Método de respaldo no configurado",
+    "description": ""
+  },
+  "popup_configurerespaldo": {
+    "message": "SUGERENCIA: Configure un método de respaldo en su próxima visita :-)",
+    "description": ""
+  },
+  "popup_nohayrespaldo": {
+    "message": "No hay datos para leer desde: ",
     "description": ""
   },
   "mensaje_registronuevo": {
@@ -327,12 +355,16 @@
     "message": "Debe escoger una opción !",
     "description": ""
   },
-  "tooltip_canvas": {
-    "message": "Formatos requeridos: png/jpeg",
+  "mensaje_operacionexitosa": {
+    "message": "Operación EXITOSA !",
     "description": ""
   },
-  "textnode_setupprescripcion": {
-    "message": "Setup your prescription",
+  "mensaje_operacionfallida": {
+    "message": "Operación FALLIDA !",
+    "description": ""
+  },
+  "tooltip_canvas": {
+    "message": "Formatos requeridos: png/jpeg",
     "description": ""
   }
 }

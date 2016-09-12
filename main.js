@@ -17,6 +17,7 @@ for (var x = 0; x < longitud; x +=1) {
     }
   }
 }
+
 function ayudaEmergente(evt) {
   // getBoundingClientRect() --> { bottom: xx, height:xx, left:xx, right:xx ,top:xx, width:xx }
   var div = document.getElementById('tooltip');
@@ -41,26 +42,28 @@ function ayudaEmergente(evt) {
 //Inicio de DB
 
 var db;
-var requestDB = indexedDB.open('ConsultaDB', 1); // return IDOpenDBRequest object
-requestDB.onupgradeneeded = function () {
-  db = requestDB.result; // instance de IDBDatabase
-  db.createObjectStore('Pacientes', { keyPath: 'id' });
-  db.createObjectStore('Medicamentos', { autoIncrement: 'true'});
-  db.createObjectStore('Preferencias');
-  db.createObjectStore('Fotos');
+function abrirDB() {
+  var requestDB = indexedDB.open('ConsultaDB', 1); // return IDBOpenDBRequest object
+  requestDB.onupgradeneeded = function () {
+    db = requestDB.result; // instance de IDBDatabase
+    db.createObjectStore('Pacientes', { keyPath: 'id' });
+    db.createObjectStore('Medicamentos', { autoIncrement: 'true'});
+    db.createObjectStore('Preferencias');
+    db.createObjectStore('Fotos');
+  }
+  requestDB.onerror = function(evt) {
+    mensajeEstado(requestDB.error);  
+  }
+  requestDB.onsuccess = function(evt) {
+    db = requestDB.result; // instance of IDBDatabase
+    db.onerror = function(evt) {                          //Since subprocess errors bubble up to IDBDatabase
+      mensajeEstado(evt.target.error);                    //this will handle any error downside
+    }                                                     //evt.target will be the srcElement, not db
+    cargarRecipe();                                       //transaction or request objects
+    cargarMedicamentos();
+  }                                                        
 }
-requestDB.onerror = function(evt) {
-  mensajeEstado(requestDB.error);  
-}
-requestDB.onsuccess = function(evt) {
-  db = requestDB.result; // instance of IDBDatabase
-  db.onerror = function(evt) {                          //Since subprocess errors bubble up to IDBDatabase
-    mensajeEstado(evt.target.error);                    //this will handle any error downside
-  }                                                     //evt.target will be the srcElement, not db
-  cargarRecipe();                                       //transaction or request objects
-  cargarMedicamentos();
-}                                                        
-
+abrirDB();
 
 // divPaciente
 
@@ -503,6 +506,7 @@ function cargarRecipe() {
   var request = almacen.get('recipe');                            //return IDBRequest
   request.onsuccess = function() {
     if (request.result) {
+      console.log(request.result);
       if (celda.children.length > 0) {
         celda.removeChild(celda.lastChild); //borrar link de setup prescription antes de insertar los datos
       }
@@ -518,13 +522,9 @@ function cargarRecipe() {
         }
       }
     } else {
-      var link = document.createElement('a');
-      link.href = '#';
-      link.addEventListener('click', function() {
-        document.getElementById('linkPreferencias').click()});
-      var texto = document.createTextNode(chrome.i18n.getMessage('textnode_setupprescripcion'));
-      link.appendChild(texto);
-      tabla.rows[0].cells[0].appendChild(link);
+      celda.firstChild.addEventListener('click', (evt) => {
+        document.getElementById('linkPreferencias').click();
+      });
     }
   }
 }

@@ -247,6 +247,10 @@
     "message": "Feed your DataBase First!",
     "description": ""
   },
+  "placeholder_escribayenter": {
+    "message": "Press ENTER to Add Prescription",
+    "description": ""
+  },
   "placeholder_marca": {
     "message": "Optional",
     "description": ""
@@ -275,16 +279,12 @@
     "message": "Option not chosen yet",
     "description": ""
   },
-  "popup_quiererespaldar": {
-    "message": "Do you want to BACKUP your DataBase to: ",
-    "description": ""
-  },
   "popup_quiererestaurar": {
-    "message": "Do you want to RESTORE  your DataBase from: ",
+    "message": "Do you want to RESTORE  your DataBase from:\n\n",
     "description": ""
   },
   "popup_quieresalir": {
-    "message": "Do you want to QUIT ?. A backup will be writted to: ",
+    "message": "Do you want to QUIT ?. A backup will be writted to:\n\n",
     "description": ""
   },
   "popup_respaldonoconfigurado": {
@@ -297,6 +297,22 @@
   },
   "popup_nohayrespaldo": {
     "message": "There is not data to read from: ",
+    "description": ""
+  },
+  "popup_dbmaschica": {
+    "message": "
+      DATA BASE is smaller than DATA BACKUP\n
+      A RESTORE DB action from your last and more up to date DATA BACKUP is needed\n 
+      Go to Preferences section. Your last record will be lost after
+               ",
+    "description": ""
+  },
+  "popup_respaldomaschico": {
+    "message": "
+      ACTION NOW ALLOWED !:\n
+      BACKUP DATA is smaller than DATABASE\n
+      That is not your last and more up to date record
+               ", 
     "description": ""
   },
   "mensaje_registronuevo": {

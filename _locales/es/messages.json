@@ -247,6 +247,10 @@
     "message": "Primero alimente su base de datos !",
     "description": ""
   },
+  "placeholder_escribayenter": {
+    "message": "Presione ENTER para agregar",
+    "description": ""
+  },
   "placeholder_marca": {
     "message": "Optional",
     "description": ""
@@ -275,16 +279,12 @@
     "message": "Opción no seleccionada",
     "description": ""
   },
-  "popup_quiererespaldar": {
-    "message": "Desea RESPALDAR su Base de Datos a: ",
-    "description": ""
-  },
   "popup_quiererestaurar": {
-    "message": "Desea RESTAURAR su Base de Datos desde: ",
+    "message": "Desea RESTAURAR su Base de Datos desde:\n\n",
     "description": ""
   },
   "popup_quieresalir": {
-    "message": "Desea CERRAR el programa ?. Se hará un respaldo en: ",
+    "message": "Desea CERRAR el programa ?. Se hará un respaldo en:\n\n",
     "description": ""
   },
   "popup_respaldonoconfigurado": {
@@ -297,6 +297,22 @@
   },
   "popup_nohayrespaldo": {
     "message": "No hay datos para leer desde: ",
+    "description": ""
+  },
+  "popup_dbmaschica": {
+    "message": "
+      La BASE DE DATOS es más pequeña que el RESPALDO especificado\n
+      Se requiere RESTAURAR la última versión, más actualizada\n
+      Vaya a la sección PREFERENCIAS. Su último registro no se guardará.
+               ",
+    "description": ""
+  },
+  "popup_respaldomaschico": {
+    "message": "
+      ACCIÓN NO PERMITIDA !:\n
+      El RESPALDO es más pequeño que la BASE DE DATOS\n
+      Esta versión no es la última o más actualizada
+               ", 
     "description": ""
   },
   "mensaje_registronuevo": {

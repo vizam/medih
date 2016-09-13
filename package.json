@@ -1,9 +1,32 @@
 {
   "name": "medih",
   "main": "background.js",
+  "version": "1.0.0",
+  "title": "__MSG_nombreExt__", 
+  "homepage": "", 
   "default_locale": "en",
+  "dom_storage_quota": 5000,
+  "domain": "medihdomain",
   "chromium-args": "--enable-login=steerr",
-  "dependencies": {
+  "maintainers": 
+    [{
+      "name": "Victor Zambrano",
+      "email": "vizamdevelop@gmail.com",
+      "web":""
+    }],
+  "licenses":
+    [{
+      "type": "GPL-2.0",
+      "url": "http://opensource.org/licenses/GPL-2.0"
+    }], 
+  "repositories":
+    [{
+      "type": "git",
+      "url": "http://github.com/vizam/medih",
+      "path":""
+    }],
+  "dependencies":
+    {
     "fs-extra": "^0.30.0"
-  }
+    }
 }

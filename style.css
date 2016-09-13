@@ -439,6 +439,20 @@ border: 1px solid black;
 margin: auto;
 background-color: WhiteSmoke;
 }
+table.prescripcion p:nth-child(odd) {
+  color: red;
+margin-bottom: 0;
+font: 1em/normal Monospace;
+text-decoration: underline;
+}
+table.prescripcion p:nth-child(even) {
+margin-top: 0;
+margin-bottom: 0;
+font: 1em/normal Monospace;
+}
+
+/* Division new widget containing table new widget*/
+
 div.div-widget {
 display: none;
 position: absolute;
@@ -448,14 +462,13 @@ background: White;
 border: 1px solid Gray;
 }
 table.new-widget {
-display: table;
 width: 100%;
 box-sizing: border-box;
 border: 1px solid Gray;
-cursor: copy;
 }
 table.new-widget tr:hover {
 background-color: LightGray;
+cursor: copy;
 }
 tr {
 white-space: pre-line;
@@ -497,16 +510,6 @@ text-align: left;
 }
 td {
 padding: 0 0.5em;
-}
-td > p:nth-child(odd) {
-margin-bottom: 0;
-font: 1em/normal Monospace;
-text-decoration: underline;
-}
-td > p:nth-child(even) {
-margin-top: 0;
-margin-bottom: 0;
-font: 1em/normal Monospace;
 }
 
 

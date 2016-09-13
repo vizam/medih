@@ -211,8 +211,7 @@ function grabarPaciente() {
     for (var x = 0; x < (longitud - 2); x += 1) { // excluye los dos botones del final
       objeto[forma.elements[x].id] = forma.elements[x].value;
     }
-    var transaccion = db.transaction(['Pacientes'], 'readwrite'); //return IDBTransaction object containing
-                                                                  //IDBIndex.objectStore method
+    var transaccion = db.transaction(['Pacientes'], 'readwrite'); //return IDBTransaction object 
     var objectStore = transaccion.objectStore('Pacientes');
     var request = objectStore.add(objeto); // para update, se usa put()
     request.onsuccess = function() {
@@ -360,9 +359,14 @@ function medicamentoOpciones(evt) {
   var celda;
   var tabla = document.getElementById('tablaOpciones'); 
   var campo = document.getElementById('medicamento');
+  var indicacion = document.getElementById('indicacion');
   var cadena = campo.value;
   var bloque = document.getElementById('divWidget')
   var vecino = bloque.previousElementSibling;
+  if (evt.code == 'Enter' || evt.code == 'NumpadEnter' && cadena) {
+    indicacion.focus();
+    return;
+  }
   // getBoundingClientRect() --> { bottom: xx, height:xx, left:xx, right:xx ,top:xx, width:xx }
   var rectangulo = vecino.getBoundingClientRect();
   if (cadena == '') {
@@ -408,46 +412,35 @@ function medicamentoOpciones(evt) {
 //  document.getElementById('divWidget').style.display = 'none';  
 //}
 
-document.getElementById('botonGrabarMedicamento').addEventListener('click', grabarMedicamento);
-function grabarMedicamento() {
-  var formulario = document.getElementById('formaMedicamentoDB');
-  var objeto = {};
-  for (var x = 0; x < 3; x += 1) {
-    objeto[formulario.elements[x].id] = formulario.elements[x].value;
-  }
-  if (!objeto.presentacion || !(objeto.marca || objeto.ingrediente)) {
-    mensajeEstado(chrome.i18n.getMessage('mensaje_marcaingredienterequeridos'));
-    return;
-  }
-  var transaccion = db.transaction(['Medicamentos'], 'readwrite'); // return transaction object with IDBIndex.objectStore method
-  var almacen = transaccion.objectStore('Medicamentos');              // return IDBObjectStore
-  var request = almacen.add(objeto);                                   // return IDBRequest
-  request.onsuccess = function() {
-    for (var y = 0; y < 3; y += 1) {
-      formulario.elements[y].value = null;
-    }
-    mensajeEstado(chrome.i18n.getMessage('mensaje_medicamentograbado'));
-    cargarMedicamentos();
-  }
-}   
 
+document.getElementById('indicacion').addEventListener('keypress', (evt) => {
+  if (evt.code == 'Enter' || evt.code == 'NumpadEnter') {
+  document.getElementById('botonAgregarPrescripcion').click();
+  evt.preventDefault();
+  }
+});
 document.getElementById('botonAgregarPrescripcion').addEventListener('click', agregarPrescripcion);
 function agregarPrescripcion() {
   var medicamento = document.getElementById('medicamento');
   var indicacion = document.getElementById('indicacion');
   var celda = document.getElementById('tablaPrescripcion').rows[4].cells[0];
   var hijos = celda.children.length; // Cantidad de elementos, excluye nodeText y comentarios
-  var lineaTope = 48;                // maximo numero de chars por linea que caben en celda de width 30em/357pt 
-  var celdaTope = 24;                // Mayor numero de lineas que caben en celda 
-                                     // con height 60% de tabla con height 555 pt 
+  var lineaTope = 50;                // maximo numero de chars permitidos por linea  
+  var celdaTope = 22;                // Mayor numero de lineas que caben en celda 
   var lineasPrevias = 0;             // inicializar para poder utilizar operador +=
+  //After \r on <textarea> element, the unused space is not counted on innerHTML length
+  //so is a user split the entry too much, it will produce bad results
+  //Since a return listener will be implemented , user wont be able to use \r for formatting
     for (var x = 0; x < hijos; x += 1) {
-      lineasPrevias += ((Math.floor(celda.children[x].innerHTML.length / lineaTope)) + 
-                        (celda.children[x].innerHTML.length % lineaTope > 0)) +
-                        (Number.isInteger(x/2));  // Cada hijo impar genera una linea (margintop) adicional 
+      lineasPrevias += Math.ceil(celda.children[x].innerHTML.length / lineaTope) + 
+                        //(celda.children[x].innerHTML.length % lineaTope > 0)) +
+                        Number.isInteger(x/2);  // Cada hijo impar genera una linea (margintop) adicional 
     }
-  var lineasNuevas = ((Math.floor(medicamento.value.length / lineaTope) + (medicamento.value.length % lineaTope > 0)) + 
-                      (Math.floor(indicacion.value.length / lineaTope) + (indicacion.value.length % lineaTope > 0)) + 1);
+  var lineasNuevas = Math.ceil(medicamento.value.length / lineaTope)// + (medicamento.value.length % lineaTope > 0)) + 
+                     + Math.ceil(indicacion.value.length / lineaTope)// + (indicacion.value.length % lineaTope > 0)) + 1);
+                      + 1;
+                      console.log('total de lineas');
+                      console.log(lineasPrevias + lineasNuevas);
   if ((medicamento.value && indicacion.value) && (lineasPrevias + lineasNuevas <= celdaTope)) {
     for (var x of [medicamento.value, indicacion.value]) {
       var elemento = document.createElement('P');
@@ -456,6 +449,7 @@ function agregarPrescripcion() {
       celda.appendChild(elemento);
     }
     medicamento.value = null;
+    medicamento.focus();
     indicacion.value = null;
   } else if (lineasPrevias + lineasNuevas > celdaTope) {
     mensajeEstado(chrome.i18n.getMessage('mensaje_prescripcionlarga'));
@@ -491,6 +485,28 @@ function imprimirRecipe() {
   window.print();
 }
 
+document.getElementById('botonGrabarMedicamento').addEventListener('click', grabarMedicamento);
+function grabarMedicamento() {
+  var formulario = document.getElementById('formaMedicamentoDB');
+  var objeto = {};
+  for (var x = 0; x < 3; x += 1) {
+    objeto[formulario.elements[x].id] = formulario.elements[x].value;
+  }
+  if (!objeto.presentacion || !(objeto.marca || objeto.ingrediente)) {
+    mensajeEstado(chrome.i18n.getMessage('mensaje_marcaingredienterequeridos'));
+    return;
+  }
+  var transaccion = db.transaction(['Medicamentos'], 'readwrite'); // return transaction object with IDBIndex.objectStore method
+  var almacen = transaccion.objectStore('Medicamentos');              // return IDBObjectStore
+  var request = almacen.add(objeto);                                   // return IDBRequest
+  request.onsuccess = function() {
+    for (var y = 0; y < 3; y += 1) {
+      formulario.elements[y].value = null;
+    }
+    mensajeEstado(chrome.i18n.getMessage('mensaje_medicamentograbado'));
+    cargarMedicamentos();
+  }
+}   
 
 
 // divPreferencias
@@ -506,7 +522,6 @@ function cargarRecipe() {
   var request = almacen.get('recipe');                            //return IDBRequest
   request.onsuccess = function() {
     if (request.result) {
-      console.log(request.result);
       if (celda.children.length > 0) {
         celda.removeChild(celda.lastChild); //borrar link de setup prescription antes de insertar los datos
       }

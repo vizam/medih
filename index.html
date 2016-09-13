@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
   <head>
-		<title>Doctor's Office</title>
+		<title>MediH EMR</title>
 		<link rel='stylesheet' href='style.css'>
 		<link rel='stylesheet' href='print.css' media='print'>
 		<meta chartset='UTF-8'>
@@ -141,20 +141,19 @@ data-tooltip = creacion de addEventListener e informacion para traduccion
               <div class='panel-head'>
                 <h2 data-inner='inner_panelprescripcion'>Prescription</h2>
 							</div>
-              <form class='form-group' autocomplete='off'>
+              <form class='form-group' >
                 <label for='medicamento' 
 								       data-inner='inner_marcaingredientepresentacion'>Brand Ingredient Form</label>
-                <input id='medicamento' type='text' size='40' data-placeholder='placeholder_medicamento' placeholder='Start Here !'>
+                <input id='medicamento' type='text' maxlength='50' data-placeholder='placeholder_medicamento' placeholder='Start Here !'>
+                <input style='display:none'> <!--forms needs more than one input to prevent submit on enter-->
 								<div id='divWidget' class='div-widget'>
 									<table id='tablaOpciones' class='new-widget'>
 									</table>
 								</div>
                 <label for='indicacion' data-inner='inner_indicaciones'>Directions</label>
-                <textarea id='indicacion' cols='50' rows='3'></textarea>
-                <button id='botonAgregarPrescripcion' type='button' 
-								        data-inner='inner_agregarprescripcion'>Add to Prescription</button>
-                <button id='botonRemoverUltimo' type='button' 
-								        data-inner='inner_removerultimo'>Delete Last One</button>
+                <textarea id='indicacion' cols='50' rows='3' maxlength='150' data-placeholder='placeholder_escribayenter'></textarea>
+                <button id='botonAgregarPrescripcion' type='button' data-inner='inner_agregarprescripcion'>Add to Prescription</button>
+                <button id='botonRemoverUltimo' type='button' data-inner='inner_removerultimo'>Delete Last One</button>
                 <button id='botonImprimirRecipe' type='button' data-inner='inner_imprimir'>Print</button>
 							</form>
 				    </div>

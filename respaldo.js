@@ -1,12 +1,14 @@
 
 
+
 var fs = require('fs-extra');
 var path = require('path');
 var homedrive = process.env.HOMEDRIVE; //"C:"
 var homepath = process.env.HOMEPATH; //"C:\Users\Ito"
 var datapath = nw.App.dataPath;      //"C:\Users\Ito\AppData\Local\medih\User Data\Default" here \IndexedDB is required
 var carpetaidb = path.sep + "IndexedDB"; //fs.copy for directory ignore parent directory
-//var extension = 'chrome-extension_knflkdhigackechbcekfmopblebljndk_0.indexeddb.leveldb';
+var dominioApp = path.sep + 'chrome-extension_medihdomain_0.indexeddb.leveldb'; //custom domain settled at package.json
+var archivoLog = path.sep + '000003.log'; //archive that seems to locate every db action and changes
 
 
 chrome.storage.local.get('ruta', (objeto) => { 
@@ -88,34 +90,66 @@ function respaldarSalir(evt) {
       window.alert(chrome.i18n.getMessage('popup_configurerespaldo')); 
       return nw.App.quit(); 
     }
-    fs.mkdirs(ruta + carpetaidb, (err) => {
+    fs.mkdirs(ruta + carpetaidb, (err) => { // create /IndexedDB if not exists
       if (err) return console.log('error al crear directorio' + err); 
-      db.close();
       if (window.confirm(chrome.i18n.getMessage('popup_quieresalir') + ruta)) {
-        copiarIndexedDB(datapath + carpetaidb, ruta + carpetaidb, evt.target.id);
-      } else {
-        abrirDB();
+        var origen;
+        var destino;
+        //stat functions could not trow error is first parameter has error
+        //is path does not exists, result is empty object
+        fs.stat(datapath + carpetaidb + dominioApp + archivoLog, (err, stats) => {
+          if (err) return console.error(err);
+          origen = stats;
+          fs.stat(ruta + carpetaidb + dominioApp + archivoLog, (err, stats) => {
+            if (err) {
+              console.error(err);
+              //means that even that ruta was established, there is no DB saved
+              db.close();
+              copiarIndexedDB(datapath + carpetaidb, ruta + carpetaidb, evt.target.id);
+            } else {
+              destino = stats;
+              if (origen.size >= destino.size) {
+                db.close();
+                copiarIndexedDB(datapath + carpetaidb, ruta + carpetaidb, evt.target.id);
+              } else {
+                window.alert(chrome.i18n.getMessage('popup_dbmaschica'));
+              }
+            }
+          });
+        });
       }
     });
   });
 }
 document.getElementById('botonRestaurarDB').addEventListener('click', restaurarDB);
 function restaurarDB(evt) {
+  console.log('entrando al restore');
   chrome.storage.local.get('ruta', (objeto) => {
     if (chrome.runtime.lastError) return console.log('se produjo un error, runtime.lastError');
     var ruta = objeto.ruta;
     if (!ruta) return window.alert(chrome.i18n.getMessage('popup_respaldonoconfigurado'));
-    fs.stat(ruta + carpetaidb, (err, stats) => { //stats is fs.Stats object
+    var origen;
+    var destino;
+    fs.stat(ruta + carpetaidb + dominioApp + archivoLog, (err, stats) => { //stats is fs.Stats object
+      console.log('entrando al primer stat');
       if (err) {
         window.alert(chrome.i18n.getMessage('popup_nohayrespaldo') + ruta + carpetaidb);
       } else {
-        db.close();
-        var texto = chrome.i18n.getMessage('popup_quiererestaurar');
-        if (window.confirm(texto + ruta + ' ?')) {//It delays user so db is closed before copy function
-          copiarIndexedDB(ruta + carpetaidb, datapath + carpetaidb, + evt.target.id);//It does not include the parent directory source
-        } else {
-          abrirDB();
-        }
+        origen = stats;
+        fs.stat(datapath + carpetaidb + dominioApp + archivoLog, (err, stats) => {
+          if (err) return console.error(err);
+          destino = stats;
+          if (origen.size >= destino.size) {
+            if (window.confirm(chrome.i18n.getMessage('popup_quiererestaurar') + ruta + ' ?')) {
+              db.close();
+              copiarIndexedDB(ruta + carpetaidb, datapath + carpetaidb, evt.target.id);
+            } else {
+              abrirDB();
+            }
+          } else {
+            window.alert(chrome.i18n.getMessage('popup_respaldomaschico'));
+          }
+        });
       }
     });
   });
@@ -131,8 +165,9 @@ function copiarIndexedDB(origen, destino, id) {//common function for Backup and 
         dereference:true,
         preserveTimestamps:false, 
         filter:filtro
-      }, (err) => {//Next function trow error (some files not copied) but both directories seems to be the same
+      }, (err) => {
         if (err && intentos < 5) {
+          console.error(err);
           intentos += 1;
         } else if (err && intentos >= 5) {
           clearInterval(intervalo);

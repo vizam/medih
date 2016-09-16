@@ -196,11 +196,11 @@
     "description": ""
   },
   "inner_panelrespaldo": {
-    "message": "Respaldo",
+    "message": "Respaldo y Restauración",
     "description": ""
   },
   "inner_metodorespaldo": {
-    "message": "Método de respaldo",
+    "message": "Ruta de respaldo y restauración",
     "description": ""
   },
   "inner_carpetadropbox": {
@@ -219,8 +219,12 @@
     "message": "Otra Carpeta Local",
     "description": ""
   },
-  "inner_restaurardb": {
-    "message": "Restaurar datos",
+  "inner_recuperardatos": {
+    "message": "Recuperar Datos",
+    "description": ""
+  },
+  "inner_restaurar": {
+    "message": "Restaurar",
     "description": ""
   },
   "inner_cambiarygrabar": {

@@ -42,26 +42,34 @@ function evaluarProveedor(x, ruta) {
   }
 }
 
-document.getElementById('opcionLocal').addEventListener('click', (evt) => {
+document.getElementById('opcionLocal').addEventListener('click', (evt1) => {
+  evt1.stopPropagation();
   var input = document.getElementById('inputEscondido');
   var cintillo = document.getElementById('infoRuta'); 
-  input.addEventListener('change', (evt) => {
-    cintillo.value = input.files[0].path;
+  input.addEventListener('change', (evt2) => {
+    evt2.stopPropagation();
+    var valor = input.files[0].path;
+    var recorte = valor.slice(0, -10); // ‐10 takes /IndexedDB
+    //prevent user from select \IndexedDB folder in case a backup/restore folder do exists
+    //instead truncate the path 
+    cintillo.value = (valor.indexOf('IndexedDB') == -1) ? valor : recorte;
     cintillo.style.color = 'Black';
   });
   input.click();
 });
 
 document.getElementById('preferenciaRespaldo').addEventListener('click', configuracionRespaldo);
-function configuracionRespaldo() {
-  var selecciones = document.getElementsByName('proveedor'); //input type radio with name='proveedor'
+function configuracionRespaldo(evt) {
+  evt.stopPropagation();
+  var radios = document.getElementsByName('proveedor'); //input type radio with name='proveedor'
   var elemento = document.getElementById('inputEscondido');
-  var objeto = document.getElementById('inputEscondido').files[0]; // return FileList object
+  var seleccion = document.getElementById('inputEscondido').files[0]; // return FileList object
   var cintillo = document.getElementById('infoRuta');
   var directorio;
-  for (var x of selecciones) {
+  for (var x of radios) {
     if (x.dataset.proveedor && x.checked == true) {
-      directorio = (objeto) ? objeto.path : homedrive + homepath + path.sep + x.dataset.proveedor;
+      directorio = (seleccion && x.dataset.proveedor == 'Local') ? 
+                    cintillo.value : homedrive + homepath + path.sep + x.dataset.proveedor;
       guardar(x);
       return;
     }
@@ -72,7 +80,7 @@ function configuracionRespaldo() {
       if (chrome.runtime.lastError) { 
         console.log('se produjo un error'); //if error, lastError is set
       } else {
-        cintillo.value = (directorio) ? directorio : homedrive + homepath + path.sep + x.dataset.proveedor;
+        cintillo.value = directorio;//(directorio) ? directorio : homedrive + homepath + path.sep + x.dataset.proveedor;
         cintillo.style.color = 'Green'; 
         elemento.value = null; //reset files object in case further selections are made/needed
         mensajeEstado(chrome.i18n.getMessage('mensaje_preferenciagrabada'));

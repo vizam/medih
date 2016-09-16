@@ -440,7 +440,6 @@ margin: auto;
 background-color: WhiteSmoke;
 }
 table.prescripcion p:nth-child(odd) {
-  color: red;
 margin-bottom: 0;
 font: 1em/normal Monospace;
 text-decoration: underline;

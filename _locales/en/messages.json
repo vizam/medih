@@ -196,11 +196,11 @@
     "description": ""
   },
   "inner_panelrespaldo": {
-    "message": "Backup",
+    "message": "Backup and Restore",
     "description": ""
   },
   "inner_metodorespaldo": {
-    "message": "Backup Method",
+    "message": "Backup and Restore Route",
     "description": ""
   },
   "inner_carpetadropbox": {
@@ -219,8 +219,12 @@
     "message": "User Custom Folder",
     "description": ""
   },
-  "inner_restaurardb": {
-    "message": "Restore DB",
+  "inner_recuperardatos": {
+    "message": "Recover Data",
+    "description": ""
+  },
+  "inner_restaurar": {
+    "message": "Restore",
     "description": ""
   },
   "inner_cambiarygrabar": {
